@@ -11,7 +11,7 @@ const initialState: CounterState = {
 };
 
 export const getAmbassadorForRanking: any = createAsyncThunk('fetchAPIfetchAPIfetchAPIfetchAPI', async () => {
-  const ambassadorList = await fetch('https://jsonplaceholder.typicode.com/todos', {
+  const ambassadorList = await fetch('https://mocki.io/v1/8e18e1fd-4534-4176-beb9-8ee21b2c722e', {
     method: 'GET',
   });
   return ambassadorList.json();

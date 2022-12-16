@@ -6,11 +6,14 @@ import { useNavigate } from 'react-router-dom';
 import { details } from '../../navigates/path';
 import { decrement, getAmbassadorForRanking, incrementByAmount } from '../../redux/Counter';
 import { getCount } from '../../redux/SelectorCount';
+import data from './mock.json';
 
 export const Home = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const count = useSelector(getCount);
+  console.log('log', data);
+
   useEffect(() => {
     dispatch(getAmbassadorForRanking());
   });
