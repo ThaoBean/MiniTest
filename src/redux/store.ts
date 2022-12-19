@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import counterReducer from './Counter';
+import flightInfoReducer from './flightInfo';
 
 export const store = configureStore({
-  reducer: { counter: counterReducer },
+  reducer: { flightInfo: flightInfoReducer },
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
