@@ -2,9 +2,11 @@ import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Space, Table } from 'antd';
 import type { ColumnsType, TablePaginationConfig } from 'antd/es/table';
+import dayjs from 'dayjs';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { LayoutCustom } from '../../components';
 import { getListFlightInfo } from '../../redux/flightInfo';
 // import { useNavigate } from 'react-router-dom';
 import { getListData } from '../../redux/flightInfo/selector';
@@ -18,6 +20,7 @@ const convertData = (_data: any) => {
   return _data?.map((item: any) => {
     return {
       ...item,
+      receivedDate: dayjs(item.receivedDate).format('YYYY/MM/DD'),
       recipients: item.recipients.toString(),
       status: item.status === 'IN' ? TStatusFlight.IN : TStatusFlight.OUT,
     };
@@ -106,8 +109,8 @@ export const Home = () => {
   ];
 
   return (
-    <>
+    <LayoutCustom>
       <Table columns={columns} dataSource={convertData(data)} />
-    </>
+    </LayoutCustom>
   );
 };
